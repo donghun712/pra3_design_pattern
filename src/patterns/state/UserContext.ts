@@ -5,8 +5,10 @@ import { InactiveState } from './InactiveState';
 
 export class UserContext {
   private state: UserState;
+  private user: User;
 
-  constructor(private user: User) {
+  constructor(user: User) {
+    this.user = user;
     this.state = user.status === 'active' ? new ActiveState() : new InactiveState();
   }
 
